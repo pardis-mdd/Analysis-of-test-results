@@ -1,6 +1,6 @@
 # Test Results Analysis System
 
-This is a web-based application designed to analyze test results using various technologies. The frontend is built with HTML, CSS, and JavaScript, while the backend is developed in Go. Additionally, there's an AI section implemented with Python to further analyze the test results.
+This is a web-based application designed to analyze test results using various technologies. The frontend is built with HTML, CSS, and JavaScript, while the backend is developed in Flask. Additionally, there's an AI section implemented with Python to further analyze the test results.
 
 ## Frontend
 
@@ -20,11 +20,11 @@ The frontend of the application is developed using HTML, CSS, and JavaScript. It
 
 ## Backend
 
-The backend of the application is built with Go, providing the necessary functionalities to process the uploaded test result files and interact with the AI section for further analysis.
+The backend of the application is built with Flask, providing the necessary functionalities to process the uploaded test result files and interact with the AI section for further analysis.
 
 ### Technologies Used:
 
-- Go
+- Flask
 
 ### Features:
 
@@ -50,7 +50,7 @@ The AI section of the application is implemented with Python. It performs advanc
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
-3. Start the backend server by running the Go application.
+3. Start the backend server by running the Flask application.
 4. Open the frontend interface in a web browser.
 5. Upload the test result file.
 6. View the analysis results provided by the system.
@@ -59,4 +59,3 @@ The AI section of the application is implemented with Python. It performs advanc
 ## Contribution
 
 Contributions to this project are welcome! If you have any suggestions, improvements, or bug fixes, feel free to submit a pull request.
-
