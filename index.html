@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Analysis-of-test-results</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav class="menu">
+          <a href="#map" id="mapBtn">نقشه</a>
+          <a href="#aboutUs" id="aboutUsBtn">درباره ما</a>
+          <a href="#img-upload" id="analysisBtn">تحلیل</a>
+          <a href="#" id="enterBtn">ورود</a>
+        </nav>
+
+        <div class="texts">
+          <h3 style="text-align: right">به سایت تحلیل آزمایش خون خوش آمدید</h3>
+          <br />
+          <p style="text-align: right">
+            ما در اینجا به تحلیل دقیق و صحیح آزمایشات خون اختصاص داده‌ایم. با
+            استفاده از تجربه و تخصص ما، به شما کمک می‌کنیم تا نتایج آزمایشات خود
+            را بهتر درک کنید و به سلامتی خود نظاره داشته باشید. با ما همراه
+            باشید و از خدمات ما بهره‌مند شوید
+          </p>
+        </div>
+      </div>
+    </header>
+    <section class="main">
+      <section class="aboutCls" id="aboutCls">
+        <div class="container">
+          <div class="Photo">
+            <img src="img/b2.jpg" alt="" />
+          </div>
+          <article>
+            <h3 id="aboutUs">درباره ما</h3>
+            <p>
+              ما، "دکتر ای آی"، به عنوان یک پلتفرم پیشرو در حوزه تحلیل نتایج
+              آزمایش خون با استفاده از هوش مصنوعی، به ماموریت ارائه خدمات عالی و
+              راهکارهای دقیق و قابل اعتماد برای مشتریان عزیزمان متعهد هستیم. در
+              "دکتر ای آی"، ما با تکیه بر تجربه و تخصص گسترده تیم متخصصان خود،
+              ارائه دهنده بهترین خدمات تحلیل و تفسیر نتایج آزمایشات خون به
+              مشتریان ارزشمندمان هستیم. با استفاده از تکنولوژی هوش مصنوعی و
+              الگوریتم‌های پیشرفته، ما اطمینان می‌دهیم که هر نتیجه آزمایش تحت
+              تحلیل دقیق و دست‌نخورده توسط تیم ما قرار می‌گیرد.
+            </p>
+            <p>
+              مهم‌تر از همه، در "دکتر ای آی"، ما به اهمیت بهداشت و سلامتی فردی و
+              جامعه توجه ویژه‌ای داریم. از این رو، هدف ما ارتقای سطح آگاهی و
+              دانش درباره وضعیت سلامتی افراد است. با ارائه تفسیرهای واضح و قابل
+              فهم از نتایج آزمایشات خون، ما سعی داریم تا به مشتریان اطلاعات لازم
+              برای بهبود سلامتی و زندگی بهتر را فراهم کنیم. پس، اگر شما هم به
+              دنبال یک منبع معتبر و قابل اعتماد برای تحلیل نتایج آزمایشات خون
+              خود هستید، با اطمینان به "دکتر ای آی" مراجعه کنید. ما با افتخار
+              منتظر خدمت‌رسانی به شما هستیم و امیدواریم که تجربه‌ای رضایت‌بخش را
+              برای شما فراهم آوریم.
+              <br />
+با احترام،تیم
+<br>
+<span>"دکتر ای آی"</span>            </p>
+          </article>
+        </div>
+      </section>
+      <section class="img-upload" id="img-upload">
+        <h2>تحلیل آزمایش</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="fileToUpload" id="fileToUpload" />
+          <input type="submit" value="بارگذاری" name="submit" class="submit" />
+        </form>
+      </section>
+      <section class="gallery" id="gallery">
+        <div class="Photo">
+          <img src="img/b1222.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b4.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b5.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b6.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b7.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b8.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b9.jpg" alt="" />
+        </div>
+        <div class="Photo">
+          <img src="img/b11.jpg" alt="" />
+        </div>
+      </section>
+      <section class="location" id="location">
+        <!-- Google Maps iframe with the provided address -->
+        <h1 class="mapTitle">نقشه</h1>
+        <iframe
+          id="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.6957832538833!2d47.10286431502246!3d37.25749797986999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400553cc03631d43%3A0xa8d251ee23c51632!2s%D8%A2%D8%B2%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%AF%D8%A7%D8%AF%D9%87%20%D9%88%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A7%D8%B1%D9%88%D9%85%DB%8C%D9%87!5e0!3m2!1sen!2s!4v1647326468763!5m2!1sen!2s"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </section>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footerB">
+          <p></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/parallax.js"></script>
+  </body>
+</html>
