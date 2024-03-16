@@ -60,6 +60,7 @@ body , input{
   }
   
 .input-field {
+    direction: rtl;
     max-width: 380px;
     width: 100%;
     background-color: #f0f0f0;
@@ -111,6 +112,7 @@ body , input{
 .forget:hover{
 	color: #38d39f;
 }
+
   .btn {
     width: 150px;
     background-color: #5995fd;
