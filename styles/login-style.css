@@ -155,7 +155,9 @@ body , input{
     border-radius: 50%;
     z-index: 6;
   }
-  
+  .logoimage{
+    width: 20%;
+  }
   .image {
     width: 100%;
     transition: transform 1.1s ease-in-out;
