@@ -1,0 +1,290 @@
+@font-face {
+  font-family: "lalehzar";
+  src: url("/Analysis-of-test-results/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf")
+      format("truetype"),
+    /* TTF font */
+      url("/Analysis-of-test-results/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf")
+      format("opentype"); /* OTF font */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* ----- HEADER ----- */
+
+header {
+  width: 100%;
+  background: url("../img/b1.jpg") #281a0c;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center 0;
+}
+
+header .container {
+  position: relative;
+  height: 700px;
+}
+
+header .menu {
+  width: 100%;
+  text-align: right;
+}
+
+header .menu a {
+  color: #000;
+  font-size: 20px;
+  font-weight: 300;
+  display: inline-block;
+  margin: 40px 20px;
+  text-decoration: none;
+  position: relative;
+  font-family: "lalehzar";
+}
+
+header .menu a:hover {
+  text-decoration: underline;
+}
+
+header .texts {
+  width: 40%; /* Adjust width as needed */
+  color: #000;
+  position: absolute;
+  top: 50%;
+  margin-top: -52px;
+  font-family: "lalehzar";
+  left: 0%; /* Set left position */
+}
+
+header .texts h3 {
+  font-weight: 300;
+  font-size: 25px;
+  text-align: right; /* Align text to the right */
+}
+
+header .texts h3 {
+  font-weight: 300;
+  font-size: 25px;
+  font-style: italic;
+}
+/*-------------------- MAIN --------------------------   */
+.main {
+  background: url("../img/bg-textura.png");
+}
+
+.main .aboutCls .container {
+  overflow: visible;
+  position: relative;
+}
+
+.main .aboutCls .Photo {
+  width: 80%;
+  position: absolute;
+  left: 0;
+  top: -50px;
+  z-index: 0;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
+}
+
+.main .aboutCls .Photo img {
+  vertical-align: top;
+  width: 100%;
+}
+
+.main .aboutCls article {
+  background: #fff;
+  padding: 40px;
+  width: 70%; /* Adjust width as needed */
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
+  font-family: "lalehzar";
+}
+
+.main .aboutCls article h3 {
+  font-size: 50px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  text-align: center; /* Center-align the heading */
+  font-family: "lalehzar";
+}
+
+.main .aboutCls article p {
+  line-height: 28px;
+  margin-bottom: 15px;
+  text-align: right; /* Right-align the paragraphs */
+  font-family: "lalehzar";
+}
+
+.main .menu {
+  padding-top: 570px;
+  margin-bottom: 50px;
+}
+
+.main .menu article {
+  width: 50%;
+  float: left;
+  padding: 20px;
+}
+
+.img-upload {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #f4f4f4; /* Light gray background color */
+  padding: 20px; /* Add padding for better separation */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+  font-family: "lalehzar";
+}
+.submit {
+  font-family: "lalehzar";
+}
+
+.img-upload h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.img-upload form {
+  display: inline-block;
+}
+
+.img-upload input[type="file"] {
+  margin-right: 10px;
+}
+
+.img-upload input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #0c3969;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.img-upload input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.main .gallery {
+  overflow: hidden;
+}
+
+.main .gallery .Photo {
+  width: 25%;
+  float: left;
+}
+
+.main .gallery .Photo img {
+  width: 100%;
+  vertical-align: top;
+  opacity: 0.7;
+}
+
+.main .gallery .Photo:hover img {
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.main .location {
+  background: #fff;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.mapTitle {
+  text-align: center;
+  font-size: 30px;
+  font-family: "lalehzar";
+  padding-bottom: 10px;
+}
+/* ----------- FOOTEER --------*/
+
+footer {
+  background: #000;
+}
+
+footer .footerB {
+  text-align: center;
+  padding: 15px 0;
+  color: #fff;
+}
+
+/*-----------------MEDIA QUERISS---------------*/
+
+@media screen and (max-width: 800px) {
+  header .container {
+    position: static;
+    height: auto;
+  }
+  header .texts {
+    position: static;
+    margin: 100px 0;
+  }
+
+  header .menu {
+    text-align: center;
+  }
+
+  header .menu a {
+    margin: 10px 20px;
+  }
+
+  header .texts h3 {
+    font-size: 18px;
+  }
+
+  .main .aboutCls .Photo {
+    width: 100%;
+    position: relative;
+  }
+
+  .main .aboutCls article {
+    position: relative;
+    width: 100%;
+    top: -50px;
+    transform: translate(0px, 0);
+  }
+
+  .main .menu {
+    padding-top: 300px;
+  }
+
+  .main .menu article {
+    width: 100%;
+  }
+
+  .main .gallery .Photo {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main .aboutCls article h3 {
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+}
