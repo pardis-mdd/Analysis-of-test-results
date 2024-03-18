@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "lalehzar";
+  src: url("/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf") format("truetype"),
+    /* TTF font */ url("/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf")
+      format("opentype"); /* OTF font */
+}
+* {
+  text-align: right;
+  background-color: #f9f5e7;
+  font-family: "lalehzar";
+}
+.containerUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dz-default {
+  margin-top: 20px;
+}
