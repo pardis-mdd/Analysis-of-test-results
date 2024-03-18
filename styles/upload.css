@@ -1,7 +1,7 @@
 @font-face {
   font-family: "lalehzar";
-  src: url("/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf") format("truetype"),
-    /* TTF font */ url("/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf")
+  src: url("/Analysis-of-test-results/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf") format("truetype"),
+    /* TTF font */ url("/Analysis-of-test-results/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf")
       format("opentype"); /* OTF font */
 }
 * {
