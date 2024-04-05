@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Upload Page</title>
+    <style>
+     @font-face {
+        font-family: "lalehzar";
+        src: url("/Analysis-of-test-results/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf")
+            format("truetype"),
+          url("/Analysis-of-test-results/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf") format("opentype");
+      }
+      * {
+        text-align: right;
+        font-family: "lalehzar";
+      }
+      body {
+        background-image: url("/Analysis-of-test-results/img/bg.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        background-color: transparent;
+      }
+      .containerUpload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .dz-default {
+        margin-top: 20px;
+      }
+      input[type="submit"] {
+        background-color: #006eff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #05386f;
+      }
+      .centered {
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+      }
+      input[type="file"] {
+        border: 2px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+      }
+      input[type="file"]:hover {
+        border-color: #999;
+      }
+      .submitBtn {
+        border: none;
+        border-radius: 20px;
+        padding: 10px 30px;
+        background-color: #1e90ff;
+        color: white;
+      }
+      .submitBtn:hover {
+        background-color: #1572a1;
+      }
+      .alert {
+        margin-top: 20px;
+      }
+      .alert {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form
+            class="mt-5"
+            method="post"
+            enctype="multipart/form-data"
+            id="uploadForm"
+            action="/"
+          >
+            <h4 class="mb-3">اطلاعات بیمار</h4>
+            <div class="form-group">
+              <label for="age">:سن</label>
+              <input
+                type="number"
+                class="form-control"
+                id="age"
+                name="age"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="gender">:جنسیت</label>
+              <select class="form-control" id="gender" name="gender" required>
+                <option value="">جنسیت خود را انتخاب کنید</option>
+                <option value="مرد">مرد</option>
+                <option value="زن">زن</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sickness">:سابقه بیماری</label>
+              <textarea
+                class="form-control"
+                id="sickness"
+                name="sickness"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <br />
+            <div class="centered">
+              <h3 style="text-align: center">آپلود آزمایش</h3>
+              <input
+                type="file"
+                name="file"
+                accept=".pdf"
+                id="fileInput"
+              /><br />
+              <button type="button" class="submitBtn" onclick="submitForm()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 18 20"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                  />
+                </svg>
+                آنالیز
+              </button>
+            </div>
+          </form>
+          <div
+            class="alert alert-danger"
+            role="alert"
+            id="errorAlert"
+            style="display: none"
+          >
+            لطفاً تمامی فیلدها را پر کنید و یا فایل را آپلود کنید
+          </div>
+          <div
+            class="alert alert-success"
+            role="alert"
+            id="successAlert"
+            style="display: none"
+          >
+            <i
+              class="fas fa-sync-alt"
+              style="cursor: pointer"
+              onclick="reloadPage()"
+            ></i>
+            <span
+              >فایل با موفقیت آپلود شد و تمامی فیلدها پر شده‌اند.چند لحظه منتطر
+              بمانید</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function submitForm() {
+        var age = document.getElementById("age").value;
+        var gender = document.getElementById("gender").value;
+        var sickness = document.getElementById("sickness").value;
+        var file = document.getElementById("fileInput").value;
+
+        if (age === "" || gender === "" || sickness === "" || file === "") {
+          document.getElementById("errorAlert").style.display = "block";
+          document.getElementById("successAlert").style.display = "none";
+        } else {
+          document.getElementById("errorAlert").style.display = "none";
+          document.getElementById("successAlert").style.display = "block";
+          setTimeout(function () {
+            document.getElementById("uploadForm").submit();
+          }, 2000);
+        }
+      }
+    </script>
+  </body>
+</html>
