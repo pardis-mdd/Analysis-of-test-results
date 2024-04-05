@@ -4,7 +4,7 @@ This is a web-based application designed to analyze test results using various t
 
 ## Demo
 
-You can view a live demo of the project <a href="https://sarakhosrozadeh.github.io/Analysis-of-test-results-/" target="_blank">here</a>.
+You can view a live demo of the project <a href="https://sarakhosrozadeh.github.io/Analysis-of-test-results/" target="_blank">here</a>.
 
 ## Frontend
 
