@@ -1,6 +1,6 @@
 @font-face {
   font-family: "lalehzar";
-  src: url("/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf") format("truetype"),
+  src: url("/Analysis-of-test-results/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf") format("truetype"),
     /* TTF font */ url("/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf")
       format("opentype"); /* OTF font */
 }
@@ -17,6 +17,7 @@ html {
 }
 
 body {
+  direction: rtl;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
