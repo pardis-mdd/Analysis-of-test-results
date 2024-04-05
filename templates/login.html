@@ -16,34 +16,35 @@
   <div class="container">
     <div class="forms-container">
        <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <form action="{{url_for('products')}}" class="sign-in-form">
             <img class="logoimage" src="../static/img/logo.png" alt="logo">
             <h2 class="title">ورود کاربر</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="نام کاربری"/>
+              <input type="text" name="username" placeholder="نام کاربری"/>
             </div>
             <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="رمز عبور"/>
+                <input type="password" name="password" placeholder="رمز عبور"/>
             </div>
-            <a class="forget" href="forget.html">فراموشی رمز؟</a>
+            <a class="forget" href="{{url_for('forget')}}">فراموشی رمز؟</a>
             <input class="btn solid" type="submit" value="ورود"/>
           </form>
-          <form action="#" class="sign-up-form">
+
+          <form action="{{url_for('products2')}}" class="sign-up-form">
             <img class="logoimage" src="../static/img/logo.png" alt="logo">
             <h2 class="title">ثبت نام کاربر</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="نام کاربری"/>
+              <input type="text" name="username2" placeholder="نام کاربری"/>
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="emial" placeholder="ایمیل"/>
+              <input type="emial" name="email" placeholder="ایمیل"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="رمز عبور"/>
+              <input type="password"  name="password2" placeholder="رمز عبور"/>
             </div>
             <input type="submit" class="btn " value="ثبت نام"/>
           </form>
@@ -79,6 +80,7 @@
        
     </div>
   </div>  
+  
   <script src="../static/js/login.js"></script>
 </body>
 </html>

@@ -15,14 +15,14 @@
     <div class="container">
         <div class="forms-container">
            <div class="signin-signup">
-              <form action="#" class="sign-in-form">
+              <form action="{{url_for('product3')}}" class="sign-in-form">
                 <img class="logoimage" src="../static/img/logo.png" alt="logo">
                 <h2 class="title">فراموشی رمز</h2>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="emial" placeholder="ایمیل"/>
+                    <input type="emial" name="email2" placeholder="ایمیل"/>
                   </div>
-                <a class="forget" href="login.html">بازگشت به صفحه ورود؟</a>
+                <a class="forget" href="{{url_for('login')}}">بازگشت به صفحه ورود؟</a>
                 <input class="btn solid" type="submit" value="بازیابی رمز"/>
               </form>
 
