@@ -9,38 +9,56 @@
       crossorigin="anonymous"
     ></script>
     
+    
     <link rel="stylesheet" href="../static/styles/login-style.css">
     <title>Sign in & Sign up</title>
 </head>
 <body>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="flashed-messages-container">
+          <ul class="flashed-messages">
+              {% for message in messages %}
+                  <li class="flashed-message">
+                      {{ message }}
+                      <button type="button" class="close-button" onclick="this.parentNode.style.display = 'none';">&times;</button>
+                  </li>
+              {% endfor %}
+          </ul>
+      </div>
+  {% endif %}
+{% endwith %}
+
+
   <div class="container">
     <div class="forms-container">
        <div class="signin-signup">
-          <form action="{{url_for('products')}}" class="sign-in-form">
-            <img class="logoimage" src="../static/img/logo.png" alt="logo">
-            <h2 class="title">ورود کاربر</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" name="username" placeholder="نام کاربری"/>
-            </div>
-            <div class="input-field">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="رمز عبور"/>
-            </div>
-            <a class="forget" href="{{url_for('forget')}}">فراموشی رمز؟</a>
-            <input class="btn solid" type="submit" value="ورود"/>
-          </form>
 
-          <form action="{{url_for('products2')}}" class="sign-up-form">
+        <form class="sign-in-form" action="login" method="post">
+          <img class="logoimage" src="../static/img/logo.png" alt="logo">
+          <h2 class="title">ورود کاربر</h2>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="emial" name="email" placeholder="ایمیل"/>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password"  name="password" placeholder="رمز عبور"/>
+          </div>
+          <a class="forget" href="{{ url_for('forgot_password') }}">فراموشی رمز؟</a>
+          <input type="submit" class="btn " value="ورود"/>
+      </form>
+
+          <form action="register" method="post" class="sign-up-form">
             <img class="logoimage" src="../static/img/logo.png" alt="logo">
             <h2 class="title">ثبت نام کاربر</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" name="username2" placeholder="نام کاربری"/>
+              <input type="text" name="name2" placeholder="نام کاربری"/>
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="emial" name="email" placeholder="ایمیل"/>
+              <input type="emial" name="email2" placeholder="ایمیل"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
@@ -48,6 +66,7 @@
             </div>
             <input type="submit" class="btn " value="ثبت نام"/>
           </form>
+          
        </div>
     </div>
 

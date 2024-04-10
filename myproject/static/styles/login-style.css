@@ -383,3 +383,45 @@ body , input{
     }
   }
   
+
+  .flashed-messages-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.flashed-messages {
+    list-style-type: none;
+    padding: 15px 15px 15px 15px;
+    margin: 0;
+}
+
+.flashed-message {
+  position: relative;
+  background-color: #fff3cd; /* Yellow background color */
+  border-color: #ffeeba;
+  color: #856404;
+  padding: 15px 120px 15px 15px; /* Increase padding and add space for the button */
+  margin-bottom: 10px; /* Increase margin between messages */
+  border-radius: 8px; /* Increase border radius for rounded corners */
+  font-size: 16px; /* Increase font size */
+  text-align: center; /* Center the text */
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  padding: 0;
+}
+
+.close-button:hover {
+  color: #333;
+}
+

@@ -12,15 +12,29 @@
     ></script>
 </head>
 <body>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      <div class="flashed-messages-container">
+          <ul class="flashed-messages">
+              {% for message in messages %}
+                  <li class="flashed-message">
+                      {{ message }}
+                      <button type="button" class="close-button" onclick="this.parentNode.style.display = 'none';">&times;</button>
+                  </li>
+              {% endfor %}
+          </ul>
+      </div>
+  {% endif %}
+{% endwith %}
     <div class="container">
         <div class="forms-container">
            <div class="signin-signup">
-              <form action="{{url_for('product3')}}" class="sign-in-form">
+              <form action="forgot_password" method="post" class="sign-in-form">
                 <img class="logoimage" src="../static/img/logo.png" alt="logo">
                 <h2 class="title">فراموشی رمز</h2>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="emial" name="email2" placeholder="ایمیل"/>
+                    <input type="emial" name="email" placeholder="ایمیل"/>
                   </div>
                 <a class="forget" href="{{url_for('login')}}">بازگشت به صفحه ورود؟</a>
                 <input class="btn solid" type="submit" value="بازیابی رمز"/>
