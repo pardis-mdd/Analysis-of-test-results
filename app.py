@@ -23,6 +23,16 @@ def index():
 def products():
     return render_template('products.html')
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -39,7 +49,8 @@ def login():
         if user:
             if user.check_password(password):
                 session['email'] = user.email
-                return redirect('/products')
+                session['username'] = user.username 
+                return redirect('/products',)
             else:
                 flash('رمز عبور وارد شده اشتباه است. ', 'error')
         else:

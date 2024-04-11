@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#22C55E">
+    <link rel="stylesheet" id="sthe_db_css_main-css" href="../static/styles/dashboard.css" media="all">
+    <link rel="icon" href="../static/img/logo.png" > 
+</head>
+
+<body class="rtl blog logged-in text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-900 dashboard_edit_account">
+    
+    <svg class="hidden">
+        <symbol id="folder-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776"></path>
+        </symbol>
+        <symbol id="user" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+        </symbol>
+        <symbol id="logout-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path>
+        </symbol>
+
+        <symbol id="home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+        </symbol>
+        <symbol id="arrow-path-rounded-square-mini" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 4.5c1.215 0 2.417.055 3.604.162a.68.68 0 01.615.597c.124 1.038.208 2.088.25 3.15l-1.689-1.69a.75.75 0 00-1.06 1.061l2.999 3a.75.75 0 001.06 0l3.001-3a.75.75 0 10-1.06-1.06l-1.748 1.747a41.31 41.31 0 00-.264-3.386 2.18 2.18 0 00-1.97-1.913 41.512 41.512 0 00-7.477 0 2.18 2.18 0 00-1.969 1.913 41.16 41.16 0 00-.16 1.61.75.75 0 101.495.12c.041-.52.093-1.038.154-1.552a.68.68 0 01.615-.597A40.012 40.012 0 0110 4.5zM5.281 9.22a.75.75 0 00-1.06 0l-3.001 3a.75.75 0 101.06 1.06l1.748-1.747c.042 1.141.13 2.27.264 3.386a2.18 2.18 0 001.97 1.913 41.533 41.533 0 007.477 0 2.18 2.18 0 001.969-1.913c.064-.534.117-1.071.16-1.61a.75.75 0 10-1.495-.12c-.041.52-.093 1.037-.154 1.552a.68.68 0 01-.615.597 40.013 40.013 0 01-7.208 0 .68.68 0 01-.615-.597 39.785 39.785 0 01-.25-3.15l1.689 1.69a.75.75 0 001.06-1.061l-2.999-3z" clip-rule="evenodd"></path>
+        </symbol>
+
+        <symbol id="bars-3-bottom-right" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"></path>
+        </symbol>
+     </svg>
+
+    <main class="md:bg-white md:dark:bg-gray-800 flex gap-x-10 2xl:gap-x-14 lg:px-8 xl:px-14 2xl:px-25 lg:py-7">
+
+        <!--first part start-->
+        <aside class="sidebar fixed top-0 bottom-0 -right-64 z-30 lg:static bg-white dark:bg-gray-800 flex flex-col w-64 lg:w-56 lg:mt-10 px-7 py-5 lg:px-0 lg:py-0 shrink-0 lg:min-h-[calc(100vh-68px)] transition-all lg:transition-none">
+            <div class="flex items-center justify-between pb-5 mb-7 border-b md:border-none border-b-gray-200 dark:border-b-slate">
+                <a href="" class="flex items-center gap-x-1.5 md:gap-x-2.5">
+                    <img src="../static/img/logo.png" class="h-10 md:h-14" alt="دکتر ای آی">
+                    <img src=""  alt="دکتر ای آی">
+                </a>
+            </div>
+            
+            <div class="space-y-4 text-zinc-700 dark:text-white">
+
+                        <a href="{{ url_for('products') }}" class="flex items-center gap-x-2.5 h-10 px-3 rounded-lg ">
+                        <svg class="w-6 h-6">
+                            <use href="#home"></use>
+                        </svg> آزمایش‌ها
+                        </a>
+
+                        <a href="" class="flex items-center gap-x-2.5 h-10 px-3 rounded-lg ">
+                        <svg class="w-6 h-6">
+                            <use href="#folder-open"></use>
+                        </svg>
+                        آزمایش های من                
+                        </a>
+                        
+                        <a href="" class="flex items-center gap-x-2.5 h-10 px-3 rounded-lg bg-primary text-white">
+                          <svg class="w-6 h-6">
+                            <use href="#user"></use>
+                          </svg>
+                        جزئیات حساب                
+                        </a>
+
+                        <a href="{{ url_for('logout') }}" class="flex items-center gap-x-2.5 h-10 px-3 rounded-lg ">
+                          <svg class="w-6 h-6">
+                            <use href="#logout-icon"></use>
+                          </svg> 
+                          خروج 
+                        </a>
+            </div>
+        </aside>
+
+        <!--first part End-->
+
+        <!--secound part Start-->
+        <section class="w-full max-w-[1432px] mx-auto bg-gray-100 dark:bg-gray md:p-10 lg:rounded-4xl">
+            <header class="flex items-center justify-between bg-white dark:bg-gray md:bg-transparent dark:border-b md:border-none border-b-gray-700 mb-6 md:mb-14 p-5 md:p-0">
+                <h3 class="hidden md:block font-danaDemiBold text-2xl text-zinc-700 dark:text-white">
+                    {{ session['username'] }} عزیز؛ خوش اومدی 🙌
+                </h3>  
+            </header>
+
+            
+            <div class="px-5 md:px-0">
+                  <h3 class="md:hidden font-danaDemiBold text-zinc-700 dark:text-white mb-7">{{ session['username'] }} عزیز؛ خوش اومدی 🙌</h3>	<div class="grid grid-cols-1 xl:grid-cols-3 gap-10">
+                <div class="xl:col-span-2 bg-white dark:bg-gray-800 p-4.5 rounded-2xl">
+                    <div class="pb-4.5 border-b border-b-gray-200 dark:border-b-slate-500">
+                      <span class="font-danaMedium md:text-xl text-zinc-700 dark:text-white">جزییات حساب کاربری</span>
+                    </div>
+                <form id="edit-account-info" class="p-3.5 pt-8">
+                    <div class="relative mb-11">
+                        <img src="https://secure.gravatar.com/avatar/c4ff6ca55bc5583dcefc7bcb8f439551?s=256&amp;d=mm&amp;r=g" class="w-32 md:w-44 h-32 md:h-44 rounded-full">
+                    
+                        <a href="https://gravatar.com/" target="_blank" title="برای تغییر پروفایل وارد وبسایت Gravatar.com شوید." class="absolute bottom-0 right-0 flex-center w-10 md:w-14 h-10 md:h-14 rounded-full bg-sky-600 dark:bg-secondary dark:hover:bg-blue-600 border-2 md:border-4 border-white dark:border-gray-800 cursor-pointer transition-colors">
+                            <svg class="w-5 md:w-6 h-5 md:h-6 text-white">
+                                <use href="#arrow-path-rounded-square-mini"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-6">
+                        <div>
+                            
+                        </div>
+                        <div class="hidden md:block"></div>
+                        <div>
+                            <label for="first_name" class="font-danaDemiBold text-zinc-700 dark:text-white">نام</label>
+                            <input type="text" class="mt-3.5 md:mt-4" id="first_name" name="first_name" required="" value="">
+                        </div>
+                        <div>
+                            <label for="last_name" class="font-danaDemiBold text-zinc-700 dark:text-white">نام خانوادگی</label>
+                            <input type="text" class="mt-3.5 md:mt-4" id="last_name" name="last_name" value="">
+                        </div>
+                        <div>
+                            <label for="username" class="font-danaDemiBold text-zinc-700 dark:text-white">نام کاربری</label>
+                            <input type="text" class="mt-3.5 md:mt-4 bg-gray-200 cursor-not-allowed" disabled="" id="username" value="{{ session['username'] }}">
+                        </div>
+                        <div>
+                            <label for="email" class="font-danaDemiBold text-zinc-700 dark:text-white">ایمیل</label>
+                            <input type="email" class="mt-3.5 md:mt-4 bg-gray-200 cursor-not-allowed " id="email" name="email" required="" value="{{ session['email'] }}">
+                        </div>
+                    </div>
+                    <input type="hidden" name="nonce" value="f33b09e4cf">
+                    <button type="submit" class="button-lg button-primary mr-auto w-full md:w-auto mt-10">ثبت اطلاعات</button>
+                </form>
+            </div>
+             <!--secound part End-->
+
+            <!---third part Start-->
+            <div class="xl:col-span-1 bg-white dark:bg-gray-800 p-4.5 rounded-2xl">
+                <div class="pb-4.5 border-b border-b-gray-200 dark:border-b-slate-500">
+                    <span class="font-danaMedium md:text-xl text-zinc-700 dark:text-white">تغییر رمز عبور</span>
+                </div>
+                <form id="edit-account-password" class="p-3.5 pt-8">
+                    <div class="space-y-5 md:space-y-6">
+                        <div>
+                            <label for="old_pass" class="font-danaDemiBold text-zinc-700 dark:text-white">رمز عبور فعلی</label>
+                            <input type="password" id="old_pass" name="old_pass" required="" class="mt-3.5 md:mt-4 mb-3" placeholder="رمز فعلی را وارد کنید">
+                        </div>
+                        <div>
+                            <label for="new_pass" class="font-danaDemiBold text-zinc-700 dark:text-white">رمز عبور جدید</label>
+                            <input type="password" class="mt-3.5 md:mt-4" id="new_pass" name="new_pass" required="" placeholder="رمز جدید را وارد کنید">
+                        </div>
+                    </div>
+                    <input type="hidden" name="nonce" value="6c9d35efc9">
+                    <button type="submit" class="button-lg button-primary mr-auto w-full md:w-auto mt-10">تغییر رمز</button>
+                </form>
+            </div>
+            <!---third part End-->
+
+           </div>
+              <div class="db-overlay invisible opacity-0 fixed w-full h-full top-0 left-0 bg-black/40 z-20 transition-all"></div>
+             </div>
+        </section>
+    </main>
+    
+    
+</body>
+</html>

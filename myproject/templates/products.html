@@ -8,6 +8,70 @@
     <script src="../static/js/sweetalert2.js"> </script>
 </head>
 <body>
+
+    <nav class="flex justify-between items-center p-4 bg-gray-800 text-white">
+        <div class="flex items-center flex-grow"> <!-- Added flex-grow -->
+            <a href="#" class="text-xl font-bold ml-4">نام سایت</a> <!-- Added ml-4 for left margin -->
+        </div>
+        <div class="flex items-center relative"> <!-- Added relative position -->
+            <button type="button" id="toggle-dropdown" class="user-profile button-xl only-icon bg-gray-100 text-slate-500 dark:bg-white/5 dark:text-white rounded-full p-3 ml-8"> <!-- Added ml-8 -->
+                <svg class="w-10 h-10">
+                    <use href="#user"></use>
+                </svg>
+            </button>
+            <!-- Overlay div -->
+            <div class="absolute top-16 left-0 mt-2 hidden"  id="user-profile-dropdown">
+                <div class="w-[278px] bg-white dark:bg-darker border border-neutral-100 dark:border-0 p-5 pb-3.5 rounded-xl">
+                    <!-- User Info -->
+                    <div class="flex items-center border-b border-b-neutral-200 dark:border-b-white/5 pb-5 mb-2">
+                        <a href="" class="shrink-0">
+                            <img src="https://secure.gravatar.com/avatar/97a99764084fb6df5fd34db293853730?s=96&amp;d=mm&amp;r=g" alt="{{ session['username'] }}" class="object-cover w-14 h-14 rounded-full inline-block" loading="lazy">
+                        </a>
+                        <div class="mr-3.5 flex flex-col gap-y-3 overflow-hidden">
+                            <span class="font-danaDemiBold inline-block truncate text-black">{{ session['username'] }}</span>
+                        </div>
+                    </div>
+                    <!-- Dashboard Links -->
+                    <a href="{{ url_for('dashboard') }}" class="flex items-center justify-between px-2.5 h-12 rounded-lg hover:text-white hover:bg-green-500 transition-colors">
+                        <span class="flex items-center text-black gap-x-2">
+                            <svg class="w-6 h-6">
+                              <use xlink:href="#user"></use>
+                            </svg>
+                            جزئیات حساب                                
+                        </span>
+                    </a>
+                    <!-- Logout Link -->
+                    <div class="mt-2 pt-2 border-t border-t-neutral-200 dark:border-t-white/5">
+                        <a href="{{ url_for('logout') }}" class="flex items-center justify-between px-2.5 h-12 rounded-lg hover:text-white hover:bg-red-500 transition-colors">
+                        <span class="flex text-black items-center gap-x-2">
+                          <svg class="w-6 h-6">
+                              <use xlink:href="#power"></use>
+                          </svg>
+                          خروج
+                        </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </nav>
+
+    
+   <svg xmlns="http://www.w3.org/2000/svg"  style="display: none;">
+    <symbol id="power"  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"></path>
+    </symbol>
+   </svg>
+    
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="user" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+        </symbol>
+    </svg>
+
+
     <div class="text-center p-10">
         <h1 class="font-bold text-4xl mb-4">آزمایش خود را انتخاب کنید</h1>
     </div>
@@ -17,12 +81,12 @@
         class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
 
         
-        <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl hover:text-blue-500">
+        <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
             <a href="{{ url_for('upload') }}">
                 <img src="../static/img/p4.jpg"
                     alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
                 <div class="px-4 py-3 w-72">
-                    <p class="text-lg font-bold text-black truncate block capitalize text-center ">آزمایش قند</p>
+                    <p class="text-lg font-bold text-black truncate block capitalize text-center">آزمایش قند</p>
                     <div class="flex items-center"> 
                         <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16"> 
@@ -38,7 +102,7 @@
                 <img src="../static/img/p2.jpg"
                     alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
                 <div class="px-4 py-3 w-72">
-                    <p class="text-lg font-bold text-black truncate block capitalize text-center">آزمایش چربی</p>
+                    <p class="text-lg font-bold text-black truncate block capitalize text-center ">آزمایش چربی</p>
                     <div class="flex items-center"> 
                         <div class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16"> 
@@ -69,6 +133,17 @@
 
        
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.getElementById("toggle-dropdown");
+            const dropdown = document.getElementById("user-profile-dropdown");
+    
+            toggleButton.addEventListener("click", function() {
+                dropdown.classList.toggle("hidden");
+            });
+        });
+    </script>
 
     <script>
         Swal.fire({
