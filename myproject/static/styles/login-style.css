@@ -399,26 +399,28 @@ body , input{
 
 .flashedsuccess{
   position: relative;
+  direction: rtl; 
   background-color: #d4edda; 
   border-color: #c3e6cb;
   color: #155724; 
-  padding: 15px 120px 15px 15px;
+  padding: 15px 15px 15px 120px; 
   margin-bottom: 10px; 
   border-radius: 8px; 
   font-size: 16px;
-  text-align: center;
+  text-align: right;
 }
 
 .flashedfailure {
   position: relative;
+  direction: rtl; 
   background-color: #f8d7da; 
   border-color: #f5c6cb;
   color: #721c24; 
-  padding: 15px 120px 15px 15px; 
+  padding: 15px 15px 15px 120px; 
   margin-bottom: 10px; 
   border-radius: 8px; 
   font-size: 16px; 
-  text-align: center; 
+  text-align: right; 
 }
 
 .close-button {
@@ -429,7 +431,8 @@ body , input{
   font-size: 18px;
   position: absolute;
   top: 5px;
-  right: 10px;
+  left: 10px;
+  right: auto;
   padding: 0;
 }
 
