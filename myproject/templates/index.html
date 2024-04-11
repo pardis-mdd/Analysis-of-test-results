@@ -1,121 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" />
-    <link rel="stylesheet" href="../static/styles/styles.css" />
-    <title>Analysis-of-test-results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>
+    </title>
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous"
+    />
   </head>
-
+  
   <body>
-    <header>
-      <div class="container">
-        <nav class="menu">
-          <a href="#map" id="mapBtn">نقشه</a>
-          <a href="#aboutUs" id="aboutUsBtn">درباره ما</a>
-          <a href="{{url_for('login')}}" id="enterBtn">ورود</a>
-        </nav>
-
-        <div class="texts">
-          <h3 style="text-align: right">به سایت تحلیل آزمایش خون خوش آمدید</h3>
-          <br />
-          <p style="text-align: right">
-            ما در اینجا به تحلیل دقیق و صحیح آزمایشات خون اختصاص داده‌ایم. با
-            استفاده از تجربه و تخصص ما، به شما کمک می‌کنیم تا نتایج آزمایشات خود
-            را بهتر درک کنید و به سلامتی خود نظاره داشته باشید. با ما همراه
-            باشید و از خدمات ما بهره‌مند شوید
-          </p>
-        </div>
-      </div>
-    </header>
-    <section class="main">
-      <section class="aboutCls" id="aboutCls">
-        <div class="container">
-          <div class="Photo">
-            <img src="../static/img/b2.jpg" alt="" />
+    <div id="preloader">
+      <img src="/Analysis-of-test-results/myproject/static/img/preloader.png"
+      alt="Logo">
+      <img src="/Analysis-of-test-results/myproject/static/img/loading.gif"
+      alt="Loading" class="loading-gif">
+    </div>
+    <div class="header" id="topheader ">
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container p-2">
+          <img src="/Analysis-of-test-results/myproject/static/img/logo1-removebg-preview.png "
+          width="50px" height="50px">
+          <a class="navbar-brand font-weight-bold text-black" style="direction: rtl;"
+          href="#">
+            دکتر Ai
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="direction: rtl;">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                  خانه
+                  <span class="sr-only">
+                    (current)
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">
+                  ورود
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#aboutUsP">
+                  درباره ما
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contactUsA">
+                  ارتباط با ما
+                </a>
+              </li>
+            </ul>
           </div>
-          <article>
-            <h3 id="aboutUs">درباره ما</h3>
-            <p>
-              ما، "دکتر ای آی"، به عنوان یک پلتفرم پیشرو در حوزه تحلیل نتایج
-              آزمایش خون با استفاده از هوش مصنوعی، به ماموریت ارائه خدمات عالی و
-              راهکارهای دقیق و قابل اعتماد برای مشتریان عزیزمان متعهد هستیم. در
-              "دکتر ای آی"، ما با تکیه بر تجربه و تخصص گسترده تیم متخصصان خود،
-              ارائه دهنده بهترین خدمات تحلیل و تفسیر نتایج آزمایشات خون به
-              مشتریان ارزشمندمان هستیم. با استفاده از تکنولوژی هوش مصنوعی و
-              الگوریتم‌های پیشرفته، ما اطمینان می‌دهیم که هر نتیجه آزمایش تحت
-              تحلیل دقیق و دست‌نخورده توسط تیم ما قرار می‌گیرد.
-            </p>
-            <p>
-              مهم‌تر از همه، در "دکتر ای آی"، ما به اهمیت بهداشت و سلامتی فردی و
-              جامعه توجه ویژه‌ای داریم. از این رو، هدف ما ارتقای سطح آگاهی و
-              دانش درباره وضعیت سلامتی افراد است. با ارائه تفسیرهای واضح و قابل
-              فهم از نتایج آزمایشات خون، ما سعی داریم تا به مشتریان اطلاعات لازم
-              برای بهبود سلامتی و زندگی بهتر را فراهم کنیم. پس، اگر شما هم به
-              دنبال یک منبع معتبر و قابل اعتماد برای تحلیل نتایج آزمایشات خون
-              خود هستید، با اطمینان به "دکتر ای آی" مراجعه کنید. ما با افتخار
-              منتظر خدمت‌رسانی به شما هستیم و امیدواریم که تجربه‌ای رضایت‌بخش را
-              برای شما فراهم آوریم.
-              <br />
-              با احترام،تیم
-              <br />
-              <span>"دکتر ای آی"</span>
-            </p>
-          </article>
+        </div>
+      </nav>
+      <section class="header-section">
+        <div class="center-div">
+          <h1 class="font-weight-bold">
+            به سایت تحلیل آزمایش خون خوش آمدید
+          </h1>
+          <p>
+            We create the world best websites.
+          </p>
+          <div class="header-buttons">
+            <a href="#aboutUsP">
+              درباره ما
+            </a>
+            <a href="#contactUsA">
+              ارتباط با ما
+            </a>
+          </div>
         </div>
       </section>
-      <section class="gallery" id="gallery">
-        <div class="Photo">
-          <img src="../static/img/b1222.jpg" alt="" />
+    </div>
+    <!--**********header part end***********--->
+    <!--************customers feedback starts *************-->
+    <section class="happyclients">
+      <div class="container headings text-center">
+        <h1 class="text-center font-weight-bold ">
+          مشتریان خوشحال ما
+        </h1>
+        <p class="text-capitalize pt-1">
+          نظر مشتریان راضی ما
+        </p>
+      </div>
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators container">
+          <li data-target="#demo" data-slide-to="0" class="active">
+          </li>
+          <li data-target="#demo" data-slide-to="1">
+          </li>
+          <li data-target="#demo" data-slide-to="2">
+          </li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner container">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/shadmehr.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      تجربه‌ی من با سرویس تحلیل آزمایش خون این سایت بسیار مثبت بوده است. از
+                      دقت و روشنی نتایجشان بسیار راضی هستم.
+                    </p>
+                    <h1>
+                      شادمهر عقیلی
+                    </h1>
+                    <h2>
+                      خواننده
+                    </h2>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/homayoon2.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      من از خدمات تحلیل آزمایش خون این سایت استفاده کردم و بسیار راضی بودم.
+                      سرعت ارائه نتایج و دقت در انجام آن‌ها از جمله مزایای این سرویس است.
+                    </p>
+                    <h1>
+                      همایون شجریان
+                    </h1>
+                    <h2>
+                      خواننده
+                    </h2>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/mehran modiri.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      تحلیل آزمایش خون این سایت به من اطمینان داده که می‌توانم بهترین خدمات
+                      را برای سلامتی خودم داشته باشم. از دقت و سرعت ارائه نتایجشان بسیار سپاسگزارم.
+                    </p>
+                    <h1>
+                      مهران مدیری
+                    </h1>
+                    <h2>
+                      بازیگر
+                    </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/taraneh.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      با توجه به فعالیت‌های پرفشارم، دسترسی آسان به خدمات تحلیل آزمایش خون برای
+                      من بسیار اهمیت دارد. این سایت با دقت و کیفیت بالا، همیشه به نیازهایم پاسخ
+                      می‌دهد.
+                    </p>
+                    <h1>
+                      ترانه علیدوستی
+                    </h1>
+                    <h2>
+                      بازیگر
+                    </h2>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/shahab.jpg" class="img-fluidi img-thumbnail"
+                    </a>
+                    <p class="m-4">
+                      استفاده از خدمات تحلیل آزمایش خون این سایت برای من تجربه‌ای بسیار مفید
+                      بوده است. نتایج دقیق و سرعت ارائه آنها باعث شده تا به دوستانم نیز این سرویس
+                      را توصیه کنم.
+                    </p>
+                    <h1>
+                      شهاب حسینی
+                    </h1>
+                    <h2>
+                      بازیگر
+                    </h2>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/A.asghariyan.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      از خدمات تحلیل آزمایش خون این سایت استفاده کردم و بسیار راضی بودم. سرعت
+                      و دقت در ارائه نتایجشان واقعاً قابل تحسین است.
+                    </p>
+                    <h1>
+                      دکتر اصغریان
+                    </h1>
+                    <h2>
+                      استاد دانشگاه
+                    </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/j.Bagherzadeh_0.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      با توجه به پیچیدگی بسیار شغلم، دسترسی به خدمات تحلیل آزمایش خون این سایت
+                      برای من بسیار ارزشمند است. به علاوه، دقت و سرعت در ارائه نتایج بسیار تاثیرگذار
+                      است.
+                    </p>
+                    <h1>
+                      دکتر باقرزاده
+                    </h1>
+                    <h2>
+                      استاد دانشگاه
+                    </h2>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/s.yousefi.png"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      این سرویس تحلیل آزمایش خون برای من به یکی از ابزارهای اصلی حفظ سلامتی
+                      تبدیل شده است. از کیفیت و صحت نتایجشان بسیار راضی هستم.
+                    </p>
+                    <h1>
+                      دکتر یوسفی
+                    </h1>
+                    <h2>
+                      استاد دانشگاه
+                    </h2>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="box">
+                  <a href="#">
+                    <img src="/Analysis-of-test-results/myproject/static/img/s.tajbakhsh.jpg"
+                    class="img-fluidi img-thumbnail" </a>
+                    <p class="m-4">
+                      تجربه‌ی من با سرویس تحلیل آزمایش خون این سایت بسیار مثبت بوده است. از
+                      دقت و روشنی نتایجشان بسیار راضی هستم.
+                    </p>
+                    <h1>
+                      دکتر تاجبخش
+                    </h1>
+                    <h2>
+                      استاد دانشگاه
+                    </h2>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="Photo">
-          <img src="../static/img/b4.jpg" alt="" />
-        </div>
-        <div class="Photo">
-          <img src="../static/img/b5.jpg" alt="" />
-        </div>
-        <div class="Photo">
-          <img src="../static/img/b6.jpg" alt="" />
-        </div>
-        <div class="Photo">
-          <img src="../static/img/b7.jpg" alt="" />
-        </div>
-        <div class="Photo">
-          <img src="../static/img/b8.jpg" alt="" />
-        </div>
-        <div class="Photo">
-          <img src="../static/img/b9.jpg" alt="" />
-        </div>
-        <div class="Photo">
-          <img src="../static/img/b11.jpg" alt="" />
-        </div>
-      </section>
-      <section class="location" id="location">
-        <!-- Google Maps iframe with the provided address -->
-        <h1 class="mapTitle">نقشه</h1>
-        <iframe
-          id="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.6957832538833!2d47.10286431502246!3d37.25749797986999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400553cc03631d43%3A0xa8d251ee23c51632!2s%D8%A2%D8%B2%D9%85%D8%A7%DB%8C%D8%B4%DA%AF%D8%A7%D9%87%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%AF%D8%A7%D8%AF%D9%87%20%D9%88%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A7%D8%B1%D9%88%D9%85%DB%8C%D9%87!5e0!3m2!1sen!2s!4v1647326468763!5m2!1sen!2s"
-          width="100%"
-          height="400"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-        ></iframe>
-      </section>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon">
+          </span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon">
+          </span>
+        </a>
+      </div>
     </section>
-    <footer>
+    <!--************customers feedback ends *************-->
+    <!--************contact us starts *************-->
+    <section class="contactus" id="contactUsA">
+      <div class="container headings text-center">
+        <h1 class="text-center font-weight-bold ">
+          ارتباط با ما
+        </h1>
+        <p class="text-capitalize pt-1">
+          ما برای کمک و پاسخ به هر سوالی که ممکن است داشته باشید اینجا هستیم. مشتاقانه
+          منتظر شنیدن شما هستیم ☺️
+        </p>
+      </div>
       <div class="container">
-        <div class="footerB">
-          <p></p>
+        <div class="row">
+          <div class="col-lg-8 col-md-8  col-10 offset-lg-2 offset-md-2 col-1">
+            <form action="/action_page.php">
+              <div class="form-group">
+                <input type="text" class="form-control" id="username" required autocomplete="off"
+                placeholder="نام" style="direction: rtl" ;>
+              </div>
+              <form action="/action_page.php">
+                <div class="form-group ">
+                  <input type="email " class="form-control" id="email" required autocomplete="off"
+                  placeholder="ایمیل" style="direction: rtl" ;>
+                </div>
+                <form action="/action_page.php">
+                  <div class="form-group ">
+                    <input type="number " class="form-control" id="Mobile" required autocomplete="off"
+                    placeholder="شماره موبایل" style="direction: rtl" ;>
+                  </div>
+                  <div class="form-group">
+                    <textarea class="form-control" rows="4" id="comment" placeholder="پیام"
+                    style="direction: rtl" ;>
+                    </textarea>
+                  </div>
+                  <div class="d-flex justify-content-center form-button">
+                    <button type="submit" class="btn btn-primary">
+                      ارسال
+                    </button>
+                </form>
+                </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
+    <!--************contact us ends *************-->
+    <!--************news letter starts *************-->
+    <section class="newsletter" id="newsletterid">
+      <div class="container headings text-center">
+        <h1 class="text-center font-weight-bold ">
+          اشتراک در خبرنامه ما
+        </h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-12">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control news-input" placeholder="ایمیل شما"
+                style="direction: rtl;">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    اشتراک
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--************newsletter ends *************-->
+      <!--************footer starts *************-->
+      <footer class="footersection" id="aboutUsA">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md -6 col-12 aboutUsA">
+              <div>
+                <h3 style="text-align: center;">
+                  درباره دکتر Ai
+                </h3>
+                <p id="aboutUsP" style="text-align: right;">
+                  ما در اینجا به تحلیل دقیق و صحیح آزمایشات خون اختصاص داده‌ایم. با استفاده
+                  از تجربه و تخصص ما، به شما کمک می‌کنیم تا نتایج آزمایشات خود را بهتر درک
+                  کنید و به سلامتی خود نظاره داشته باشید. با ما همراه باشید و از خدمات ما
+                  بهره‌مند شوید
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md -6 col-12 aboutUsA text-center">
+              <div>
+                <li>
+                  <a href="#">
+                    خانه
+                  </a>
+                </li>
+                <li>
+                  <a href="#loginA">
+                    ورود
+                  </a>
+                </li>
+                <li>
+                  <a href="#aboutUsP">
+                    درباره ما
+                  </a>
+                </li>
+                <li>
+                  <a href="#contactUsA">
+                    ارتباط با ما
+                  </a>
+                </li>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md -12 col-12 aboutUsA">
+              <div>
+                <h3 style="text-align: center;">
+                  خبرنامه
+                </h3>
+                <p style="direction: rtl; text-align: center;">
+                  برای دریافت اخبار، کانال ما را دنبال کنید.
+                </p>
+                <div class="container newsletter-main">
+                  <div class="row">
+                    <div class="col-lg-12 col-12">
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control news-input" placeholder="ایمیل شما"
+                        style="text-align: right;">
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                            اشتراک
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 text-center">
+          </div>
+          <div class="scrolltop float-right">
+            <i class="fa fa-arrow-up" onclick="topFunction()" id="myBtn">
+            </i>
+          </div>
+        </div>
+      </footer>
+      <!--************footer ends *************-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"
+      integrity="sha512-d8F1J2kyiRowBB/8/pAWsqUl0wSEOkG5KATkVV4slfblq9VRQ6MyDZVxWl2tWd+mPhuCbpTB4M7uU/x9FlgQ9Q=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+      integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+      </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+      </script>
+      <script>
+        // Wait for the window to load
 
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/effects.js"></script>
-    <script src="../static/js/parallax.js"></script>
+        window.onload = function() {
+          // After the preloader animation completes, hide the preloader
+          var preloader = document.getElementById('preloader');
+          preloader.addEventListener('animationend',
+          function() {
+            preloader.style.display = 'none'; // Hide the preloader
+            document.body.style.overflow = 'visible'; // Show the rest of the content
+            document.body.classList.add('show-content'); // Add the class to show content
+          });
+        };
+
+        $('.count').counterUp({
+          delay: 10,
+          time: 3000
+        })
+        //get button
+        mybutton = document.getElementById("myBtn");
+        //when the user scroll down  20px from the top of the ddocument  show the button
+
+        window.onscroll = function() {
+          scrollFunction()
+        };
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        //when the user dclicks on the button ,scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; //for safari
+          document.documentElement.scrollTop = 0; //for chrome firefox opera
+        }
+      </script>
   </body>
+
 </html>
