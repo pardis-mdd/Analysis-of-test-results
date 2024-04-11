@@ -4,288 +4,575 @@
     /* TTF font */ url("../fonts/Lalezar-Font/OTF/Lalezar-Regular.otf")
       format("opentype"); /* OTF font */
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "lalehzar";
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
-  
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-}
-p,h3{
-  direction: rtl;
-}
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  overflow: hidden;
-}
-
-/* ----- HEADER ----- */
-
-header {
-  width: 100%;
-  background: url("../img/b1.jpg") #281a0c;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center 0;
-}
-
-header .container {
-  position: relative;
-  height: 700px;
-}
-
-header .menu {
-  width: 100%;
-  text-align: right;
-}
-
-header .menu a {
-  color: #000;
-  font-size: 20px;
-  font-weight: 300;
-  display: inline-block;
-  margin: 40px 20px;
+a {
   text-decoration: none;
-  position: relative;
-  font-family: "lalehzar";
 }
 
-header .menu a:hover {
-  text-decoration: underline;
+a:hover {
+  text-decoration: none;
 }
 
-header .texts {
-  width: 40%; /* Adjust width as needed */
-  color: #000;
-  position: absolute;
-  top: 50%;
-  margin-top: -52px;
-  font-family: "lalehzar";
-  left: 0%; /* Set left position */
+li {
+  list-style: none;
 }
 
-header .texts h3 {
-  font-weight: 300;
-  font-size: 25px;
-  text-align: right; /* Align text to the right */
+p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #606060;
 }
 
-header .texts h3 {
-  font-weight: 300;
-  font-size: 25px;
-  font-style: italic;
-}
-/*-------------------- MAIN --------------------------   */
-.main {
-  background: url("../img/bg-textura.png");
-}
-
-.main .aboutCls .container {
-  overflow: visible;
-  position: relative;
+.extra-div h2,
+.loginA h2 {
+  font-size: 0.9rem;
+  margin: 20px 0 15px 0;
+  font-weight: bold;
+  line-height: 1.1;
+  word-spacing: 4px;
 }
 
-.main .aboutCls .Photo {
-  width: 80%;
-  position: absolute;
-  left: 0;
-  top: -50px;
-  z-index: 0;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
+i {
+  color: #192a56;
 }
 
-.main .aboutCls .Photo img {
-  vertical-align: top;
+.header {
   width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(0, 7, 11, 0.301),
+      rgba(0, 7, 11, 0.445)
+    ),
+    url("/Analysis-of-test-results/myproject/static/img/b3.jpg");
+  background-repeat: no-repeat;
+  clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0 75%, 0 0);
+  position: relative;
+}
+/* Preloader CSS */
+/* Preloader CSS */
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 1s ease;
+  animation: zoomAndFade 5s ease;
 }
 
-.main .aboutCls article {
-  background: #fff;
-  padding: 40px;
-  width: 70%; /* Adjust width as needed */
+/* Additional CSS for hiding other content initially */
+body > *:not(#preloader) {
+  display: none;
+}
+
+/* CSS to show hidden content after 3 seconds */
+.show-content > *:not(#preloader) {
+  display: block !important;
+}
+
+/* Keyframes for preloader animation */
+@keyframes zoomAndFade {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* CSS for loading GIF */
+.loading-gif {
+  position: absolute;
+  top: calc(65% + 40px); /* Adjust vertical position */
+  left: calc(49% - 20px); /* Adjust horizontal position */
+  transform: translate(-50%, -50%);
+  width: 190px; /* Adjust width */
+  height: 140px; /* Adjust height */
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  opacity: 0.3;
+  background: linear-gradient(to right, #012032 0%, #01302a, #022832 100%);
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  opacity: 0.3;
+  z-index: -1;
+  background: linear-gradient(to right, #000d15 0%, #000605, #00080a 100%);
+}
+
+.nav-item a {
+  margin: 10px;
+  font-size: 20px;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+.nav-item a:hover {
+  background-color: #192a56;
+  border-radius: 20px;
+}
+.header-section {
+  width: 100%;
+  height: inherit;
+  color: white;
+  text-align: center;
   position: relative;
+}
+
+.center-div {
+  width: 100%;
+  height: auto;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
-  font-family: "lalehzar";
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
 }
 
-.main .aboutCls article h3 {
-  font-size: 50px;
-  font-weight: 300;
-  margin-bottom: 40px;
-  text-align: center; /* Center-align the heading */
-  font-family: "lalehzar";
-}
-
-.main .aboutCls article p {
-  line-height: 28px;
-  margin-bottom: 15px;
-  text-align: right; /* Right-align the paragraphs */
-  font-family: "lalehzar";
-}
-
-.main .menu {
-  padding-top: 570px;
-  margin-bottom: 50px;
-}
-
-.main .menu article {
-  width: 50%;
-  float: left;
-  padding: 20px;
-}
-
-.img-upload {
+.header-buttons a {
+  border: 1px solid #fff;
+  border-radius: 100px;
+  margin: 0 5px;
+  padding: 12px 35px;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  background-color: #f4f4f4; /* Light gray background color */
-  padding: 20px; /* Add padding for better separation */
-  border-radius: 10px; /* Add border radius for rounded corners */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
-  font-family: "lalehzar";
-}
-.submit {
-  font-family: "lalehzar";
 }
 
-.img-upload h2 {
-  font-size: 24px;
+.header-buttons a:hover {
+  color: #192a56;
+  background-color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.center-div p {
+  font-size: 1.3rem;
+  padding: 10px 0 20px 0;
+  color: #fff;
+}
+
+.header-extradiv {
+  width: 100%;
+  height: auto;
+  margin: 100px 0;
+  text-align: center;
+}
+
+.extra-div {
+  background-color: #fff;
+  border: medium none;
+  padding: 50px !important;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.extra-div:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(-20px);
+}
+
+/* ***** service offers ***** */
+.serviceoffers {
+  background: #f7f7f9;
+  padding: 50px 0;
+  margin-bottom: 50px;
+}
+
+.headings {
+  margin-bottom: 50px;
+}
+
+.headings h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.names h1 {
+  color: #2e2e2e;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.service-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress {
+  height: 0.6rem !important;
+  margin-bottom: 25px !important;
+  background: #606060;
+}
+
+/* ***** service offers ***** */
+
+/* **** Awards ****** */
+
+.project-work {
+  margin: 100px 0;
+}
+
+.project-work h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+/* **** Awards ****** */
+
+/* **** PRICING ****** */
+.pricing {
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  position: relative;
+}
+
+.pricing::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background: linear-gradient(160deg, #192a56 55%, #fff 0%);
+}
+
+.money {
+  font-size: 40px;
+  line-height: 1;
+  color: #606060;
+}
+
+.card {
+  transition: 0.4s ease;
+}
+
+.card-header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: #fff !important;
+  padding: 25px 9 !important;
+}
+
+.card-body {
+  padding: 30px 0px !important;
+}
+
+.card-body li {
+  margin: 10px 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #606060;
+}
+
+.card-footer {
+  background: white !important;
+  padding: 30px 0px !important;
+}
+
+.card-footer a {
+  border: 1px solid #192a56;
+  border-radius: 100px;
+  margin: 0 5px;
+  padding: 12px 35px;
+  outline: none;
+  color: #192a56;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.card:hover .card-footer a {
+  color: #fff;
+  background-color: #192a56;
+  text-decoration: none;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .card-header,
+.card:hover .money {
+  color: #192a56;
+}
+
+.card-second {
+  transform: translateY(-20px);
+}
+/* **** PRICING ****** */
+
+/* **** Our Customer Feedback ****** */
+
+.happyclients {
+  width: 100%;
+  height: 100vh;
+  padding: 80px 0;
+}
+
+.box {
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  transition: 0.3s ease;
+  direction: rtl;
+}
+
+.box:hover {
+  background-color: #192a56;
+}
+
+.box:hover p {
+  color: white;
+}
+
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: -60px !important;
+}
+
+.carousel-indicators li {
+  background-color: #192a56 !important;
+}
+
+.box a {
+  position: relative;
+}
+
+.box a::after {
+  content: "\f10d";
+  font-family: FontAwesome;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(to right, #1e5799 0%, #192a56 0%, #40739e 100%);
+  color: white;
+  position: absolute;
+  top: 120%;
+  left: 70%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box a img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.box h1 {
+  font-size: 18px;
+  font-weight: 700px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.box h2 {
+  font-size: 13px;
+  font-weight: 400px;
+  color: #666666;
   margin-bottom: 20px;
 }
 
-.img-upload form {
-  display: inline-block;
-}
+/* **** Our Customer Feedback ****** */
 
-.img-upload input[type="file"] {
-  margin-right: 10px;
-}
+/* **** Contact Us End ****** */
 
-.img-upload input[type="submit"] {
-  padding: 10px 20px;
-  background-color: #0c3969;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.img-upload input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-.main .gallery {
-  overflow: hidden;
-}
-
-.main .gallery .Photo {
-  width: 25%;
-  float: left;
-}
-
-.main .gallery .Photo img {
+.contactus {
   width: 100%;
-  vertical-align: top;
-  opacity: 0.7;
+  height: 100vh;
+  padding: 80px 0;
+  position: relative;
 }
 
-.main .gallery .Photo:hover img {
-  opacity: 1;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.contactus::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(330deg, #192a56 55%, #fff 0%);
+  z-index: -1;
 }
 
-.main .location {
+.form-button button {
+  border: 1px solid #192a56;
+  border-radius: 100px;
+  margin: 0 5px;
+  padding: 12px 35px;
+  outline: none;
+  color: #192a56;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  background: transparent;
+}
+
+form:hover .form-button button {
   background: #fff;
-  padding: 60px 0;
-  overflow: hidden;
+  color: #192a56;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.mapTitle {
-  text-align: center;
-  font-size: 30px;
-  font-family: "lalehzar";
-  padding-bottom: 10px;
-}
-/* ----------- FOOTEER --------*/
-
-footer {
-  background: #000;
+::placeholder {
+  font-size: 0.85rem;
 }
 
-footer .footerB {
-  text-align: center;
-  padding: 15px 0;
+/* **** Contact Us End ****** */
+
+/* ***** Newsletter ***** */
+
+.newsletter {
+  width: 100%;
+  height: auto;
+  margin: 80px auto;
+}
+
+.news-input {
+  border-radius: 100px 0px 0px 100px !important;
+  min-width: 150px;
+  min-height: 45px;
+}
+
+.input-group-text {
+  color: #fff !important;
+  background: #192a56 !important;
+  border-radius: 0px 100px 100px 0px !important;
+  min-width: 130px;
+  min-width: 45px;
+}
+
+/* ***** Footer Starts ***** */
+
+.footersection {
+  width: 100%;
+  height: auto;
+  padding: 70px 0 20px 0;
+  background: #192a56;
+  position: relative;
+}
+
+.footersection p {
   color: #fff;
 }
 
-/*-----------------MEDIA QUERISS---------------*/
+.footersection li a {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #fff;
+  text-transform: capitalize;
+}
 
-@media screen and (max-width: 800px) {
-  header .container {
-    position: static;
+.footersection h3 {
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 1.2rem !important;
+  font-weight: 600;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+#myBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  z-index: 99;
+  border: none;
+  color: #fff;
+  background: #192a56;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#myBtn:hover {
+  background: #606060;
+}
+
+/* ***** Footer Ends ***** */
+
+/* ****** Media Queries ******* */
+@media (max-width: 768px) {
+  .nav-item {
+    text-align: center !important;
+  }
+
+  .pricing,
+  .happyclients,
+  .contactus {
     height: auto;
-  }
-  header .texts {
-    position: static;
-    margin: 100px 0;
+    margin-top: 50px;
   }
 
-  header .menu {
-    text-align: center;
+  .card-second {
+    transform: translateY(0px);
+    margin: 30px 0;
   }
 
-  header .menu a {
-    margin: 10px 20px;
+  .contactus p {
+    margin: 0 50px;
   }
 
-  header .texts h3 {
-    font-size: 18px;
+  .footer-div:nth-child(2) {
+    text-align: left !important;
   }
 
-  .main .aboutCls .Photo {
-    width: 100%;
-    position: relative;
-  }
-
-  .main .aboutCls article {
-    position: relative;
-    width: 100%;
-    top: -50px;
-    transform: translate(0px, 0);
-  }
-
-  .main .menu {
-    padding-top: 300px;
-  }
-
-  .main .menu article {
-    width: 100%;
-  }
-
-  .main .gallery .Photo {
-    width: 50%;
+  .footer-div {
+    margin: 30px 0;
   }
 }
-
-@media screen and (max-width: 400px) {
-  .main .aboutCls article h3 {
-    font-size: 34px;
-    margin-bottom: 10px;
-  }
-}
+/* ****** Media Queries ******* */
