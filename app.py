@@ -86,7 +86,7 @@ def forgot_password():
         if user:
             # Generate a token and send the password reset email
             
-            flash('An email has been sent with instructions to reset your password.')
+            flash('An email has been sent with instructions to reset your password.', 'success')
             return redirect(url_for('login'))  # Assuming 'login' is the route for the login page
         else:
             flash('No account found with that email address.', 'error')  # 'error' could be a CSS class for displaying error messages

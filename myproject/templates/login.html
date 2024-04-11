@@ -14,12 +14,13 @@
     <title>Sign in & Sign up</title>
 </head>
 <body>
-  {% with messages = get_flashed_messages() %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
       <div class="flashed-messages-container">
           <ul class="flashed-messages">
-              {% for message in messages %}
-                  <li class="flashed-message">
+              {% for category, message in messages %}
+                  {% set css_class = {'error': 'flashedfailure', 'success': 'flashedsuccess'} %}
+                  <li class="{{ css_class.get(category, '') }}">
                       {{ message }}
                       <button type="button" class="close-button" onclick="this.parentNode.style.display = 'none';">&times;</button>
                   </li>
@@ -28,6 +29,7 @@
       </div>
   {% endif %}
 {% endwith %}
+
 
 
   <div class="container">

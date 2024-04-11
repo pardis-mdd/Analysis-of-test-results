@@ -397,16 +397,28 @@ body , input{
     margin: 0;
 }
 
-.flashed-message {
+.flashedsuccess{
   position: relative;
-  background-color: #fff3cd; /* Yellow background color */
-  border-color: #ffeeba;
-  color: #856404;
-  padding: 15px 120px 15px 15px; /* Increase padding and add space for the button */
-  margin-bottom: 10px; /* Increase margin between messages */
-  border-radius: 8px; /* Increase border radius for rounded corners */
-  font-size: 16px; /* Increase font size */
-  text-align: center; /* Center the text */
+  background-color: #d4edda; 
+  border-color: #c3e6cb;
+  color: #155724; 
+  padding: 15px 120px 15px 15px;
+  margin-bottom: 10px; 
+  border-radius: 8px; 
+  font-size: 16px;
+  text-align: center;
+}
+
+.flashedfailure {
+  position: relative;
+  background-color: #f8d7da; 
+  border-color: #f5c6cb;
+  color: #721c24; 
+  padding: 15px 120px 15px 15px; 
+  margin-bottom: 10px; 
+  border-radius: 8px; 
+  font-size: 16px; 
+  text-align: center; 
 }
 
 .close-button {
