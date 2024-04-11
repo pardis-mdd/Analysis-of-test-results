@@ -55,7 +55,7 @@ i {
       rgba(0, 7, 11, 0.301),
       rgba(0, 7, 11, 0.445)
     ),
-    url("/Analysis-of-test-results/myproject/static/img/b3.jpg");
+    url("../img/b3.jpg");
   background-repeat: no-repeat;
   clip-path: polygon(100% 0%, 100% 75%, 50% 100%, 0 75%, 0 0);
   position: relative;
