@@ -447,16 +447,16 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
       </script>
       <script>
-        // Wait for the window to load
+        
 
         window.onload = function() {
-          // After the preloader animation completes, hide the preloader
+         
           var preloader = document.getElementById('preloader');
           preloader.addEventListener('animationend',
           function() {
-            preloader.style.display = 'none'; // Hide the preloader
-            document.body.style.overflow = 'visible'; // Show the rest of the content
-            document.body.classList.add('show-content'); // Add the class to show content
+            preloader.style.display = 'none'; 
+            document.body.style.overflow = 'visible'; 
+            document.body.classList.add('show-content'); 
           });
         };
 
@@ -464,9 +464,9 @@
           delay: 10,
           time: 3000
         })
-        //get button
+        
         mybutton = document.getElementById("myBtn");
-        //when the user scroll down  20px from the top of the ddocument  show the button
+        
 
         window.onscroll = function() {
           scrollFunction()
@@ -479,10 +479,10 @@
             mybutton.style.display = "none";
           }
         }
-        //when the user dclicks on the button ,scroll to the top of the document
+        
         function topFunction() {
-          document.body.scrollTop = 0; //for safari
-          document.documentElement.scrollTop = 0; //for chrome firefox opera
+          document.body.scrollTop = 0; 
+          document.documentElement.scrollTop = 0; 
         }
       </script>
   </body>
