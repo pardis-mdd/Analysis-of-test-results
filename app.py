@@ -6,12 +6,12 @@ from myproject.forms import LoginForm, RegistrationForm, ForgotPasswordForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mail import Message
 from functools import wraps
-from pdf_processor import extract_text_from_pdf, extract_values, analyze_results
+from myproject.pdf_processor import extract_text_from_pdf, extract_values, analyze_results
 from flask import Flask, render_template, request
 import os
 import tempfile
 from werkzeug.utils import secure_filename
-from pdf_processor2 import extract_text_from_pdf2, extract_values2, analyze_results2
+from myproject.pdf_processor2 import extract_text_from_pdf2, extract_values2, analyze_results2
 
 
 def login_required(f):
