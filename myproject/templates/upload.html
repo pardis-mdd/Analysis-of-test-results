@@ -41,7 +41,11 @@
       padding: 10px 30px; background-color: #1e90ff; color: white; } .submitBtn:hover
       { background-color: #1572a1; } .alert { margin-top: 20px; } .alert { position:
       fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1000; }
-      .row{ margin-top: 60px; }
+      .row{ margin-top: 60px; } .center-container {
+    display: flex;
+    justify-content: center;
+}
+
     </style>
   </head>
   
@@ -90,7 +94,10 @@
               <h3 style="text-align: center">
                 آپلود آزمایش
               </h3>
-              <input type="file" name="file" accept=".pdf" id="fileInput" />
+              <div class="center-container">
+                <input type="file" name="file" accept=".pdf" id="fileInput" class="fileSubmitter"/>
+            </div>
+            
               <br />
               <button type="button" class="submitBtn" onclick="submitForm()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
