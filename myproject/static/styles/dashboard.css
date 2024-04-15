@@ -1892,6 +1892,61 @@ html.dark .notifications-list::-webkit-scrollbar-thumb {
   --tw-text-opacity: 1;
   color: rgb(63 63 70 / var(--tw-text-opacity));
 }
+.flashed-messages-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.flashed-messages {
+  list-style-type: none;
+  padding: 15px 15px 15px 15px;
+  margin: 0;
+}
+
+.flashedsuccess{
+position: relative;
+direction: rtl; 
+background-color: #d4edda; 
+border-color: #c3e6cb;
+color: #155724; 
+padding: 15px 15px 15px 120px; 
+margin-bottom: 10px; 
+border-radius: 8px; 
+font-size: 16px;
+text-align: right;
+}
+
+.flashedfailure {
+position: relative;
+direction: rtl; 
+background-color: #f8d7da; 
+border-color: #f5c6cb;
+color: #721c24; 
+padding: 15px 15px 15px 120px; 
+margin-bottom: 10px; 
+border-radius: 8px; 
+font-size: 16px; 
+text-align: right; 
+}
+
+.close-button {
+background: none;
+border: none;
+color: #666;
+cursor: pointer;
+font-size: 18px;
+position: absolute;
+top: 5px;
+left: 10px;
+right: auto;
+padding: 0;
+}
+
+.close-button:hover {
+color: #333;
+}
 
 
 @media (min-width: 768px) {

@@ -11,21 +11,20 @@
     </title>
     <script src="../static/js/sweetalert2.js">
     </script>
+
+    
   </head>
   
-  <body>
+  <body class="bg-gray-100">
+   
     <nav class="flex justify-between items-center p-4 bg-gray-800 text-white">
       <div class="flex items-center flex-grow">
-        <a href="#" class="text-xl font-bold ml-4">
-          نام سایت
-        </a>
+        <h1>دکتر Ai</h1>
       </div>
       <div class="flex items-center relative">
         <button type="button" id="toggle-dropdown" class="user-profile button-xl only-icon bg-gray-100 text-slate-500 dark:bg-white/5 dark:text-white rounded-full p-3 ml-8">
-          <!-- Added ml-8 -->
           <svg class="w-10 h-10">
-            <use href="#user">
-            </use>
+            <use href="#user"></use>
           </svg>
         </button>
         <div class="absolute top-16 left-0 mt-2 hidden" id="user-profile-dropdown">
@@ -45,8 +44,7 @@
             <a href="{{ url_for('dashboard') }}" class="flex items-center justify-between px-2.5 h-12 rounded-lg hover:text-white hover:bg-green-500 transition-colors">
               <span class="flex items-center text-black gap-x-2">
                 <svg class="w-6 h-6">
-                  <use xlink:href="#user">
-                  </use>
+                  <use xlink:href="#user"></use>
                 </svg>
                 جزئیات حساب
               </span>
@@ -55,8 +53,7 @@
               <a href="{{ url_for('logout') }}" class="flex items-center justify-between px-2.5 h-12 rounded-lg hover:text-white hover:bg-red-500 transition-colors">
                 <span class="flex text-black items-center gap-x-2">
                   <svg class="w-6 h-6">
-                    <use xlink:href="#power">
-                    </use>
+                    <use xlink:href="#power"></use>
                   </svg>
                   خروج
                 </span>
@@ -66,6 +63,10 @@
         </div>
       </div>
     </nav>
+    
+    
+    
+ 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="power" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
       stroke="currentColor">
@@ -79,11 +80,12 @@
         </path>
       </symbol>
     </svg>
-    <div class="text-center p-10">
+    <div class="">
+    <div class="text-center p-10" > 
       <h1 class="font-bold text-4xl mb-4">
         آزمایش خود را انتخاب کنید
       </h1>
-    </div>
+    </div >
     <section id="Projects" class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
       <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="/blood_test">
@@ -140,6 +142,7 @@
         </a>
       </div>
     </section>
+    </div>
     <script>
       document.addEventListener("DOMContentLoaded",
       function() {

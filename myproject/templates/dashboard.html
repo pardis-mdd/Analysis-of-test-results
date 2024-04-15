@@ -9,6 +9,21 @@
 </head>
 
 <body class="rtl blog logged-in text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-900 dashboard_edit_account">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flashed-messages-container">
+            <ul class="flashed-messages">
+                {% for category, message in messages %}
+                    {% set css_class = {'error': 'flashedfailure', 'success': 'flashedsuccess'} %}
+                    <li class="{{ css_class.get(category, '') }}">
+                        {{ message }}
+                        <button type="button" class="close-button" onclick="this.parentNode.style.display = 'none';">&times;</button>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+  {% endwith %}
     
     <svg class="hidden">
         <symbol id="folder-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -40,7 +55,7 @@
             <div class="flex items-center justify-between pb-5 mb-7 border-b md:border-none border-b-gray-200 dark:border-b-slate">
                 <a href="" class="flex items-center gap-x-1.5 md:gap-x-2.5">
                     <img src="../static/img/logo.png" class="h-10 md:h-14" alt="دکتر ای آی">
-                    <img src=""  alt="دکتر ای آی">
+                    <h1>دکتر ای آی</h1>
                 </a>
             </div>
             
@@ -50,13 +65,6 @@
                         <svg class="w-6 h-6">
                             <use href="#home"></use>
                         </svg> آزمایش‌ها
-                        </a>
-
-                        <a href="" class="flex items-center gap-x-2.5 h-10 px-3 rounded-lg ">
-                        <svg class="w-6 h-6">
-                            <use href="#folder-open"></use>
-                        </svg>
-                        آزمایش های من                
                         </a>
                         
                         <a href="" class="flex items-center gap-x-2.5 h-10 px-3 rounded-lg bg-primary text-white">
@@ -92,7 +100,7 @@
                     <div class="pb-4.5 border-b border-b-gray-200 dark:border-b-slate-500">
                       <span class="font-danaMedium md:text-xl text-zinc-700 dark:text-white">جزییات حساب کاربری</span>
                     </div>
-                <form id="edit-account-info" class="p-3.5 pt-8">
+                <form id="edit-account-info" class="p-3.5 pt-8" action="/update_account_info" method="POST">
                     <div class="relative mb-11">
                         <img src="https://secure.gravatar.com/avatar/c4ff6ca55bc5583dcefc7bcb8f439551?s=256&amp;d=mm&amp;r=g" class="w-32 md:w-44 h-32 md:h-44 rounded-full">
                     
@@ -109,11 +117,11 @@
                         <div class="hidden md:block"></div>
                         <div>
                             <label for="first_name" class="font-danaDemiBold text-zinc-700 dark:text-white">نام</label>
-                            <input type="text" class="mt-3.5 md:mt-4" id="first_name" name="first_name" required="" value="">
+                            <input type="text" class="mt-3.5 md:mt-4" id="first_name" name="first_name" required="" value="{{ session.get('firstname', '') }}">
                         </div>
                         <div>
                             <label for="last_name" class="font-danaDemiBold text-zinc-700 dark:text-white">نام خانوادگی</label>
-                            <input type="text" class="mt-3.5 md:mt-4" id="last_name" name="last_name" value="">
+                            <input type="text" class="mt-3.5 md:mt-4" id="last_name" name="last_name" required="" value="{{ session.get('lastname', '') }}">
                         </div>
                         <div>
                             <label for="username" class="font-danaDemiBold text-zinc-700 dark:text-white">نام کاربری</label>
@@ -121,7 +129,7 @@
                         </div>
                         <div>
                             <label for="email" class="font-danaDemiBold text-zinc-700 dark:text-white">ایمیل</label>
-                            <input type="email" class="mt-3.5 md:mt-4 bg-gray-200 cursor-not-allowed " id="email" name="email" required="" value="{{ session['email'] }}">
+                            <input type="email" class="mt-3.5 md:mt-4 bg-gray-200 cursor-not-allowed " id="email" name="email" value="{{ session['email'] }}">
                         </div>
                     </div>
                     <input type="hidden" name="nonce" value="f33b09e4cf">
@@ -135,7 +143,7 @@
                 <div class="pb-4.5 border-b border-b-gray-200 dark:border-b-slate-500">
                     <span class="font-danaMedium md:text-xl text-zinc-700 dark:text-white">تغییر رمز عبور</span>
                 </div>
-                <form id="edit-account-password" class="p-3.5 pt-8">
+                <form id="edit-account-password" class="p-3.5 pt-8" action="/update_account_password" method="POST">
                     <div class="space-y-5 md:space-y-6">
                         <div>
                             <label for="old_pass" class="font-danaDemiBold text-zinc-700 dark:text-white">رمز عبور فعلی</label>
@@ -146,7 +154,7 @@
                             <input type="password" class="mt-3.5 md:mt-4" id="new_pass" name="new_pass" required="" placeholder="رمز جدید را وارد کنید">
                         </div>
                     </div>
-                    <input type="hidden" name="nonce" value="6c9d35efc9">
+                    <input type="hidden" name="email" value="{{ session['email'] }}">
                     <button type="submit" class="button-lg button-primary mr-auto w-full md:w-auto mt-10">تغییر رمز</button>
                 </form>
             </div>

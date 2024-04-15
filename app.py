@@ -12,7 +12,7 @@ import os
 import tempfile
 from werkzeug.utils import secure_filename
 from myproject.pdf_processor2 import extract_text_from_pdf2, extract_values2, analyze_results2
-
+from email_validator import validate_email, EmailNotValidError
 
 def login_required(f):
     @wraps(f)
@@ -86,6 +86,9 @@ def register():
 
         if not username or not email or not password:
             flash("لطفاً تمامی فیلدها را پر کنید.", "error")
+            return redirect(request.url)
+        if not is_valid_email(email):
+            flash("فرمت ایمیل وارد شده صحیح نیست. دوباره امتحان کنید!", "error")
             return redirect(request.url)
         if existing_user:
             flash(
@@ -225,6 +228,63 @@ def upload_blood_sugar_test():
 def upload():
     return render_template("upload.html")
 
+@app.route('/update_account_info', methods=['POST'])
+@login_required
+def update_account_info():
+    if request.method == 'POST':
+        firstname = request.form.get('first_name')
+        lastname = request.form.get('last_name')
+        session['firstname'] = firstname
+        session['lastname'] = lastname
+        email = request.form.get('email')
+
+        user = User.query.filter_by(email=email).first()
+        user.firstname = firstname
+        user.lastname = lastname
+        db.session.commit()
+
+        flash('اطلاعات حساب شما با موفقیت به روز رسانی شد.', 'success')
+        return redirect(url_for('dashboard')) 
+
+
+
+@app.route('/update_account_password', methods=['POST'])
+@login_required
+def update_account_password():
+    if request.method == 'POST':
+        old_password = request.form.get('old_pass')
+        new_password = request.form.get('new_pass')
+        email = request.form.get('email')
+        
+
+        current_user = User.query.filter_by(email=email).first()  
+        
+        if not current_user.check_password(old_password):
+            flash('رمز عبور فعلی اشتباه است.', 'error')
+            return redirect(url_for('dashboard'))  
+
+        if old_password == new_password:
+            flash('رمز عبور جدید نمی‌تواند با رمز عبور فعلی یکسان باشد.', 'error')
+            return redirect(url_for('dashboard'))  
+
+        # Update the password in the database
+        current_user.password_hash = generate_password_hash(new_password)
+        db.session.commit()
+        
+        flash('رمز عبور شما با موفقیت به روز رسانی شد.', 'success')
+        
+        return redirect(url_for('dashboard')) 
+
+
+def is_valid_email(email):
+    try:
+        v = validate_email(email, check_deliverability=False)
+        # Check for exactly one '@' sign
+        if email.count('@') != 1:
+            return False
+        return True
+    except EmailNotValidError:
+        return False
 
 if __name__ == "__main__":
     app.run(debug=True)
