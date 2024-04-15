@@ -167,15 +167,17 @@ body > *:not(#preloader) {
 
 .header-buttons a {
   border: 1px solid #fff;
-  border-radius: 100px;
+  border-radius: 50px; 
   margin: 0 5px;
-  padding: 12px 35px;
+  padding: 10px 25px; 
   outline: none;
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
   text-align: center;
+  display: inline-block; 
+  text-decoration: none; 
 }
 
 .header-buttons a:hover {
@@ -184,6 +186,7 @@ body > *:not(#preloader) {
   text-decoration: none;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
+
 
 .center-div p {
   font-size: 1.3rem;
