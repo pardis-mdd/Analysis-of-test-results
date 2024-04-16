@@ -17,7 +17,7 @@
   
   <body class="bg-gray-100">
    
-    <nav class="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <nav class="flex justify-between items-center p-4 bg-gray-800 text-white" >
       <div class="flex items-center flex-grow">
         <h1>دکتر Ai</h1>
       </div>
@@ -64,9 +64,6 @@
       </div>
     </nav>
     
-    
-    
- 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="power" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
       stroke="currentColor">
@@ -144,17 +141,25 @@
     </section>
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded",
-      function() {
+      document.addEventListener("DOMContentLoaded", function() {
         const toggleButton = document.getElementById("toggle-dropdown");
         const dropdown = document.getElementById("user-profile-dropdown");
-
-        toggleButton.addEventListener("click",
-        function() {
+    
+        toggleButton.addEventListener("click", function(event) {
+          event.stopPropagation(); // Prevent the click event from bubbling up to the document
           dropdown.classList.toggle("hidden");
+        });
+    
+        // Add click event listener to the document
+        document.addEventListener("click", function(event) {
+          // Check if the click target is outside of the dropdown or the toggle button
+          if (!dropdown.contains(event.target) && event.target !== toggleButton) {
+            dropdown.classList.add("hidden");
+          }
         });
       });
     </script>
+    
     <script>
       Swal.fire({
         title: "",

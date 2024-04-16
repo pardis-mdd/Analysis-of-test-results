@@ -63,7 +63,8 @@ i {
 /* Preloader CSS */
 /* Preloader CSS */
 #preloader {
-  position: fixed;
+  position: relative;
+  text-align: center;
   left: 0;
   top: 0;
   width: 100%;
@@ -131,9 +132,14 @@ body > *:not(#preloader) {
   bottom: 0%;
   left: 0;
   right: 0;
-  opacity: 0.3;
+  opacity: 0.5;
   z-index: -1;
   background: linear-gradient(to right, #000d15 0%, #000605, #00080a 100%);
+}
+@media (max-width: 768px) {
+  .navbar::before {
+    opacity: 0.9; /* Opacity for mobile screens */
+  }
 }
 
 .nav-item a {

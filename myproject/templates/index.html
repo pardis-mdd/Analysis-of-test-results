@@ -22,28 +22,22 @@
       <img src="../static/img/loading.gif"
       alt="Loading" class="loading-gif">
     </div>
-    <div class="header" id="topheader ">
-      <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="header" id="topheader">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container p-2">
-          <img src="../static/img/logo1-removebg-preview.png "
-          width="50px" height="50px">
-          <a class="navbar-brand font-weight-bold text-black" style="direction: rtl;"
-          href="#">
+          <img src="../static/img/logo1-removebg-preview.png" width="50px" height="50px">
+          <a class="navbar-brand font-weight-bold" style="direction: rtl;" href="#">
             دکتر Ai
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-            </span>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent" style="direction: rtl;">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="#">
                   خانه
-                  <span class="sr-only">
-                    (current)
-                  </span>
+                  <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -71,7 +65,7 @@
             به سایت تحلیل آزمایش خون خوش آمدید
           </h1>
           <p>
-            Welcome to the blood test site
+            به سایت آزمایش خون خوش آمدید
           </p>
           <div class="header-buttons">
             <a href="#aboutUsP">
@@ -84,6 +78,8 @@
         </div>
       </section>
     </div>
+    
+    
     <!--**********header part end***********--->
     <!--************customers feedback starts *************-->
     <section class="happyclients">
@@ -381,7 +377,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#loginA">
+                  <a href="{{ url_for('login') }}">
                     ورود
                   </a>
                 </li>
