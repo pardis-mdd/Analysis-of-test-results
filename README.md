@@ -18,6 +18,10 @@ Analysis of Test Results provides a user-friendly platform for uploading medical
 
 - **AI-driven Analysis:** AI algorithms are integrated into the backend to automate the extraction of relevant data from uploaded PDF files and perform comprehensive analysis.
 
+## AI Integration (Coming Soon) 🤖
+
+AI-driven analysis functionality will be added to the project soon. This will enhance the analysis capabilities by leveraging machine learning algorithms to provide more accurate and detailed insights from the test results.
+
 ## Installation 🛠️
 
 To set up the project locally, follow these steps:
@@ -31,6 +35,5 @@ To set up the project locally, follow these steps:
 ## Usage 🖥️
 
 1. Upload Test Result PDF: Click on the "Upload" button to select and upload the test result PDF file.
-2. AI Analysis: Once the file is uploaded, the AI algorithms will automatically extract relevant data and perform analysis.
-3. View Analysis Report: The analysis report will be displayed on the screen, providing insights and interpretations of the test results.
-
+2. AI Analysis (Coming Soon): Once the file is uploaded, the AI algorithms will automatically extract relevant data and perform analysis.
+3. View Analysis Report: The analysis report will be displayed on the screen, providing insights and interpretations of the test results. For a preview of the report format, you can use the tests in the tests folder for blood test and blood sugar test.
