@@ -8,7 +8,7 @@ You can view a live demo of the project [here](https://sarakhosrozadeh.github.io
 
 ## Overview 📋
 
-Analysis of Test Results provides a user-friendly platform for uploading medical test result PDF files, processing them with AI algorithms, and generating insightful analysis reports.
+Analysis of Test Results provides a user-friendly platform for uploading medical test result PDF or image files, processing them with AI algorithms, and generating insightful analysis reports.
 
 ## Features 🚀
 
