@@ -34,6 +34,6 @@ To set up the project locally, follow these steps:
 
 ## Usage 🖥️
 
-1. Upload Test Result PDF: Click on the "Upload" button to select and upload the test result PDF file.
+1. Upload Test Result PDF Or Image: Click on the "Upload" button to select and upload the test result PDF or image file.
 2. AI Analysis (Coming Soon): Once the file is uploaded, the AI algorithms will automatically extract relevant data and perform analysis.
 3. View Analysis Report: The analysis report will be displayed on the screen, providing insights and interpretations of the test results. For a preview of the report format, you can use the tests in the tests folder for blood test and blood sugar test.
