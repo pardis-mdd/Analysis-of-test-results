@@ -53,8 +53,14 @@
     <div class="container py-5">
       <div class="row">
         <div class="col-md-6 offset-md-3">
+          {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                    
           <form class="mt-5" method="post" enctype="multipart/form-data" id="uploadForm"
-          action="/blood_test /blood_sugar_test">
+          action="/blood_test /blood_sugar_test /lipid_test">
             <h4 class="mb-3">
               اطلاعات بیمار
             </h4>
@@ -95,7 +101,7 @@
                 آپلود آزمایش
               </h3>
               <div class="center-container">
-                <input type="file" name="file" accept=".pdf" id="fileInput" class="fileSubmitter"/>
+                <input type="file" name="file" accept=".pdf,.jpg,.png" id="fileInput" class="fileSubmitter"/>
             </div>
             
               <br />
@@ -123,6 +129,9 @@
       </div>
     </div>
     <script>
+        function reloadPage() {
+            location.reload();
+        }
       function submitForm() {
         var form = document.getElementById("uploadForm");
         var age = document.getElementById("age").value;
@@ -138,7 +147,10 @@
         } else {
           if (url.includes("/blood_sugar_test")) {
             action = "/blood_sugar_test";
-          } else if (url.includes("/blood_test")) {
+          } if(url.includes("/lipid_test")) {
+            action = "/lipid_test";
+          }
+          else if (url.includes("/blood_test")) {
             action = "/blood_test";
           }
 
@@ -149,7 +161,7 @@
           setTimeout(function() {
             form.submit();
           },
-          2000);
+          10);
         }
       }
     </script>

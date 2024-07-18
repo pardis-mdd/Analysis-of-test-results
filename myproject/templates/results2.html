@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="Fa-IR">
+<head>
+    <title>نتایج تجزیه و تحلیل</title>
+    <style>
+        @font-face {
+            font-family: "lalehzar";
+            src: url("/static/fonts/Lalezar-Font/TTF/Lalezar-Regular.ttf") format("truetype"),
+                 url("/static/fonts/Lalezar-Font/OTF/Lalezar-Regular.otf") format("opentype");
+        }
+        body {
+            direction: rtl;
+            font-family: "lalehzar";
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7ff;
+            color: #333;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 50%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #f0f7ff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 6px;
+        }
+
+        th {
+            background-color: #1e3799;
+            color: #fff;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        tbody tr:nth-child(even) td {
+            background-color: #e3efff;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #235a82;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .details {
+            margin-top: 20px;
+            padding: 10px;
+            /* border: 1px solid #ddd; */
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .details p {
+            margin: 5px 0;
+        }
+
+        .details .low {
+            color: #ff0000;
+        }
+
+        .details .high {
+            color: #ff8800;
+        }
+
+        .patient-info {
+            text-align: right;
+            margin-right: 20px;
+            background-color: #f0f7ff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .patient-info h1 {
+            color: #235a82;
+        }
+
+        .patient-info h3 {
+            color: #333;
+        }
+
+        .patient-info p {
+            color: #555;
+        }
+
+        .red-text {
+            color: red;
+        }
+
+        .explain-txt {
+            text-align: center;
+            color: red;
+            direction: rtl;
+        }
+
+        .high {
+            color: red;
+        }
+
+        .low {
+            color: #ffc312;
+        }
+
+        .normal {
+            color: green;
+        }
+
+        .detail-txt2 {
+            font-size: 20px;
+            text-align: center;
+            color: #c23616;
+        }
+
+        .analysis {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نتایج تجزیه و تحلیل آزمایش چربی</h1>
+        
+        <div class="patient-info">
+            <h2>اطلاعات بیمار</h2>
+            <p>سن: {{ patient_info.age }}</p>
+            <p>جنسیت: {{ patient_info.gender }}</p>
+            <p>سابقه بیماری: {{ patient_info.history }}</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>پارامتر</th>
+                    <th>نتیجه</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in keyword_values.items() %}
+                <tr>
+                    <td>{{ key|capitalize }}</td>
+                    <td>{{ value }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="analysis">
+            <h2>تجزیه و تحلیل</h2>
+            {% for key, value in results.items() %}
+            <div class="details">
+                <strong>{{ key|capitalize }}:</strong> {{ value }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

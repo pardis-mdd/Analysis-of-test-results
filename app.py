@@ -6,14 +6,14 @@ from myproject.forms import LoginForm, RegistrationForm, ForgotPasswordForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mail import Message
 from functools import wraps
-from myproject.pdf_processor import extract_text_from_pdf, extract_values, analyze_results
 from flask import Flask, render_template, request
 import os
 import tempfile
 from werkzeug.utils import secure_filename
-from myproject.pdf_processor2 import extract_text_from_pdf2, extract_values2, analyze_results2
+from myproject.pdf_processor import extract_text_from_pdf, extract_values, analyze_results
 from email_validator import validate_email, EmailNotValidError
-
+from myproject import lipid
+from myproject import glucose
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -148,39 +148,107 @@ def send_password_reset_email(user, token):
 
 @app.route("/blood_sugar_test", methods=["GET", "POST"])
 def upload_blood_test():
-    error = None
-    success = None
-
     if request.method == "POST":
         if "file" not in request.files:
-            error = "No file part"
-        else:
-            file = request.files["file"]
-            if file.filename == "":
-                error = "No selected file"
-            elif not file.filename.endswith(".pdf"):
-                error = "Please upload a PDF file."
-            else:
-                pdf_text = extract_text_from_pdf(file)
-                blood_test_results = extract_values(pdf_text)
-                analysis = analyze_results(blood_test_results)
+            return render_template("upload.html", error="No file part")
+        
+        file = request.files["file"]
+        if file.filename == "":
+            return render_template("upload.html", error="No selected file")
+        
 
-                age = request.form.get("age")
-                gender = request.form.get("gender")
-                sickness = request.form.get("sickness")
-                success = "File uploaded successfully and all fields filled."
+        age = request.form.get("age")
+        gender = request.form.get("gender")
+        history = request.form.get("history")
 
-                return render_template(
-                    "results.html",
-                    age=age,
-                    gender=gender,
-                    sickness=sickness,
-                    blood_test_results=blood_test_results,
-                    analysis=analysis,
-                )
+        patient_info = {
+            "age": age,
+            "gender": gender,
+            "history": history
+        }
 
-    return render_template("upload.html", error=error, success=success)
+        if not os.path.exists('uploads'):
+            os.makedirs('uploads')
+        
+        # Save the uploaded file
+        file_path = os.path.join("uploads", file.filename)
+        file.save(file_path)
+        
+        # Extract keyword values
+        keyword_values = glucose.extract_keyword_values(file_path)
+        
+        if any(key not in keyword_values  for key in ["glucose"]):
+            return render_template("upload.html", error="این گزارش مربوط به این فرآیند نیست")
+        
+        results = {}
+        
+        if "glucose" in keyword_values:
+            glucose2 = float(glucose.clean_text(keyword_values["glucose"]))
+            results["glucose"] = glucose.interpret_glucose(glucose2)
+        
+        return render_template("results2.html", results=results , keyword_values=keyword_values ,patient_info=patient_info)
+    
+    return render_template("upload.html")
 
+@app.route("/lipid_test", methods=["POST", "GET"])
+@login_required
+def upload_lipid_test():
+    if request.method == "POST":
+        if "file" not in request.files:
+            return render_template("upload.html", error="No file part")
+        
+        file = request.files["file"]
+        if file.filename == "":
+            return render_template("upload.html", error="No selected file")
+        
+
+        age = request.form.get("age")
+        gender = request.form.get("gender")
+        history = request.form.get("history")
+
+        patient_info = {
+            "age": age,
+            "gender": gender,
+            "history": history
+        }
+
+        if not os.path.exists('uploads'):
+            os.makedirs('uploads')
+        
+        # Save the uploaded file
+        file_path = os.path.join("uploads", file.filename)
+        file.save(file_path)
+        
+        keyword_values = lipid.extract_keyword_values(file_path)
+        
+        if any(key not in keyword_values  for key in ["total", "triglycerides", "ldl", "hdl", "non-hdl"]):
+            return render_template("upload.html", error="این گزارش مربوط به این فرآیند نیست")
+        
+        results = {}
+        
+        if "total" in keyword_values:
+            total_cholesterol = float(lipid.clean_text(keyword_values["total"]))
+            results["total"] = lipid.interpret_total_cholesterol(total_cholesterol)
+        
+        if "triglycerides" in keyword_values:
+            triglycerides = float(lipid.clean_text(keyword_values["triglycerides"]))
+            results["triglycerides"] = lipid.interpret_triglycerides(triglycerides)
+        
+        if "ldl" in keyword_values:
+            ldl_cholesterol = float(lipid.clean_text(keyword_values["ldl"]))
+            results["ldl"] = lipid.interpret_ldl_cholesterol(ldl_cholesterol)
+        
+        if "hdl" in keyword_values:
+            hdl_cholesterol = float(lipid.clean_text(keyword_values["hdl"]))
+            results["hdl"] = lipid.interpret_hdl_cholesterol(hdl_cholesterol, gender)
+        
+        if "non-hdl" in keyword_values:
+            non_hdl_cholesterol = float(lipid.clean_text(keyword_values["non-hdl"]))
+            results["non_hdl"] = lipid.interpret_non_hdl_cholesterol(non_hdl_cholesterol)
+        
+        return render_template("results2.html", results=results , keyword_values=keyword_values ,patient_info=patient_info)
+    
+    return render_template("upload.html")
 
 @app.route("/blood_test", methods=["GET", "POST"])
 def upload_blood_sugar_test():
@@ -199,9 +267,9 @@ def upload_blood_sugar_test():
             )
             file.save(temp_pdf_path)
 
-            pdf_text = extract_text_from_pdf2(temp_pdf_path)
-            blood_test_results = extract_values2(pdf_text)
-            analysis = analyze_results2(blood_test_results)
+            pdf_text = extract_text_from_pdf(temp_pdf_path)
+            blood_test_results = extract_values(pdf_text)
+            analysis = analyze_results(blood_test_results)
 
             age = request.form.get("age")
             gender = request.form.get("gender")
